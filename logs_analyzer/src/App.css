@@ -1,0 +1,52 @@
+.App {
+  display: flex;
+}
+
+.App2 {
+  flex: 1;
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1d2634;
+  color: #9e9ea4;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@media screen and (max-width: 992px) {
+
+
+  #sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar-title > span {
+    display: inline;
+  }
+}
+/* Small <= 768px */
+  
+@media screen and (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+
+}
+
+/* Extra Small <= 576px */
+
+@media screen and (max-width: 576px) {
+  .leftheader {
+    display: none;
+  }
+}
