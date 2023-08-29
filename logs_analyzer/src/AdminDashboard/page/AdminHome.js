@@ -38,6 +38,7 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
             </a>
           </div>
         </main>
+        <div className="main-content"> test update only the branch</div>
       </div>
     </div>
   );
