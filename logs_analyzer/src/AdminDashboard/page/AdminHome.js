@@ -16,7 +16,7 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
 
         <main className="main-content">
           <div className="main-title">
-            <h3>DASHBOARD change test</h3>
+            <h3>DASHBOARD</h3>
           </div>
           <hr />
 
