@@ -100,7 +100,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
 
   //for the number of page
   const [currentpage, setcurrentpage] = useState(1);
-  const recordsperPage =6;
+  const recordsperPage =5;
   const lastIndex = currentpage * recordsperPage;
   const firstIndex = lastIndex - recordsperPage;
   const records = data.slice(firstIndex, lastIndex);
