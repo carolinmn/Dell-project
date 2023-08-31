@@ -1,4 +1,6 @@
 import "../../comp/Sidebar.css";
+import {NavLink } from "react-router-dom";
+
 
 function AdminSidebar({ openSidebarToggle, OpenSidebar }) {
   return (
@@ -14,21 +16,31 @@ function AdminSidebar({ openSidebarToggle, OpenSidebar }) {
       </div>
 
       <ul className="sidebar-list">
-        <li className="sidebar-list-item">
-          <a href="/">
+        <NavLink className="a-sidebar" to="/">
+          <li className="sidebar-list-item">
             <i class="fa-solid fa-table-columns"></i> Dashboard
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="/">
+          </li>
+        </NavLink>
+
+        <NavLink className="a-sidebar" to="/user">
+          <li className="sidebar-list-item">
             <i class="fas fa-users"></i> Users
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="/Logs">
+          </li>
+        </NavLink>
+
+        <NavLink className="a-sidebar" to="/logs">
+          <li className="sidebar-list-item">
             <i class="fa-regular fa-file"></i> Logs
-          </a>
-        </li>
+          </li>
+        </NavLink>
+
+
+        <a className="a-sidebar" href="/">
+          <li className="sidebar-list-item signout">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+          </li>
+        </a>
+
       </ul>
     </aside>
   );

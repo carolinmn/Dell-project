@@ -2,6 +2,8 @@ import React from "react";
 import "./AdminHome.css";
 import Header from "../comp/AdminHeader";
 import Sidebar from "../comp/AdminSidebar";
+import {Link } from "react-router-dom";
+
 
 const AdminHome = (OpenSidebar, openSidebarToggle) => {
   return (
@@ -21,21 +23,21 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
           <hr />
 
           <div className="main-cards">
-            <a href="/usertable" className="card-btn">
+            <Link to="/user" className="card-btn">
               <div className="card">
                 <i class="fas fa-users card-icon"></i>
                 <h1>Users</h1>
                 <h2>300</h2>
               </div>
-            </a>
+            </Link>
 
-            <a href="/Logs" className="card-btn">
+            <Link to="/logs" className="card-btn">
               <div className="card">
                 <i class="fa-regular fa-file card-icon"></i>
                 <h1>Logs</h1>
                 <h2>12</h2>
               </div>
-            </a>
+            </Link>
           </div>
         </main>
       </div>
