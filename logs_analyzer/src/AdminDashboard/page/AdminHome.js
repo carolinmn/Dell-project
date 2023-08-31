@@ -21,7 +21,7 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
           <hr />
 
           <div className="main-cards">
-            <a href="/" className="card-btn">
+            <a href="/usertable" className="card-btn">
               <div className="card">
                 <i class="fas fa-users card-icon"></i>
                 <h1>Users</h1>

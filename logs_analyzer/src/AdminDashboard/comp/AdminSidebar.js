@@ -1,6 +1,7 @@
 import '../../comp/Sidebar.css'
 
 
+
 function AdminSidebar({openSidebarToggle, OpenSidebar}){
   return(
 
@@ -29,7 +30,12 @@ function AdminSidebar({openSidebarToggle, OpenSidebar}){
             <i class="fa-regular fa-file"></i> Logs
             </a>
         </li>
-      
+
+        <li className='sidebar-list-item signout'>
+            <a href="">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+            </a>
+        </li>
     </ul>
 </aside>
 

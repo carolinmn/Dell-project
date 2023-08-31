@@ -4,6 +4,9 @@ import { useState } from "react";
 import ReportsHome from './Reports/page/Home';
 import RoleManagmentsHome from './RoleManagment/page/Home';
 import FileHome from './Files/page/Home';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserTable from './AdminDashboard/page/UserTable';
+
 
 
 
@@ -15,9 +18,12 @@ function App() {
     setOpenSidebarToggle(!openSidebarToggle)
   }
   return (
-  <div>
-    <AdminHome  />      
-  </div>
+  <BrowserRouter>
+  <Routes>
+  <Route path="/" element={<AdminHome />} />
+  <Route path="/usertable" element={<UserTable />} />
+  </Routes>
+  </BrowserRouter>
   );
 }
 
