@@ -29,7 +29,7 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
               </div>
             </a>
 
-            <a href="/" className="card-btn">
+            <a href="/Logs" className="card-btn">
               <div className="card">
                 <i class="fa-regular fa-file card-icon"></i>
                 <h1>Logs</h1>
