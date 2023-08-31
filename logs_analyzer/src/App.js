@@ -4,7 +4,6 @@ import { useState } from "react";
 import ReportsHome from "./Reports/page/Home";
 import RoleManagmentsHome from "./RoleManagment/page/Home";
 import FileHome from "./Files/page/Home";
-import Logs from "./AdminDashboard/page/Logs";
 
 //<AdminHome openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
 function App() {
@@ -15,7 +14,7 @@ function App() {
   };
   return (
     <div>
-      <Logs />
+      <AdminHome />
     </div>
   );
 }

@@ -1,0 +1,14 @@
+ table{
+width: 100%;
+
+ }
+ 
+.head{
+  background-color: bisque;
+
+}
+
+ th, td {
+  text-align: center;
+  padding: 10px;
+}

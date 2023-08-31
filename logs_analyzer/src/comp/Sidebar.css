@@ -31,6 +31,14 @@
   list-style-type: none;
 }
 
+.signout{
+  position: fixed;
+  width: 177px;
+  bottom: 0px;
+  transition: 1500ms;
+}
+
+
 .sidebar-list-item {
   padding: 20px 20px 20px 20px;
   font-size: 18px;
@@ -40,6 +48,14 @@
   background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
 }
+
+.signout:hover{
+  background-color: red;
+    cursor: pointer;
+}
+
+
+
 
 .sidebar-list-item  a {
   text-decoration: none;
