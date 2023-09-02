@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import Sidebar from "../comp/AdminSidebar";
 import Header from "../comp/AdminHeader";
 import "./Logs.css";
+import UserAdd from "../comp/UserAdd";
+import UserUpdate from "../comp/UserUpdate";
 
 const UserTable = (OpenSidebar, openSidebarToggle) => {
-  const data = [
+  const [data,setData] =useState( [
     {
       _id: "1",
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -19,7 +21,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -28,16 +30,16 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
     {
       _id: "4",
       userName: "Axwara",
-      firstName: "Ahmad",
+      firstName: "Aaaaa",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -46,7 +48,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -55,7 +57,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -64,7 +66,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -73,7 +75,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -82,7 +84,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
@@ -91,12 +93,46 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       userName: "Axwara",
       firstName: "Ahmad",
       lastName: "Agbaria",
-      Email: "ah@gmail.com",
+      email: "ah@gmail.com",
+      Phone: "123456789",
+      role: "user",
+    },
+    {
+      _id: "11",
+      userName: "Axwara",
+      firstName: "Ahmad",
+      lastName: "Agbaria",
+      email: "ah@gmail.com",
+      Phone: "123456789",
+      role: "user",
+    },
+    {
+      _id: "12",
+      userName: "Axwara",
+      firstName: "Ahmad",
+      lastName: "Agbaria",
+      email: "ah@gmail.com",
       Phone: "123456789",
       role: "user",
     },
   
-  ];
+  ]);
+
+
+  //for open adduser comp
+  const [compAddUser, setCompAddUser] = useState(false);
+  const [compEditUser, setCompEditUser] = useState(false);
+  
+  
+  const [rowToEdit, setRowToEdit] = useState(null);
+
+
+
+  const handleEditRow = (idx) => {
+    setRowToEdit(idx);
+
+    setCompEditUser(true);
+  };
 
   //for the number of page
   const [currentpage, setcurrentpage] = useState(1);
@@ -147,12 +183,13 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
                     <td>{d.Phone}</td>
                     <td>{d.role}</td>
                     <td>
-                      <i class="fa-regular fa-pen-to-square editbtn"></i>{" "}
+                      <i class="fa-regular fa-pen-to-square editbtn"  onClick={() =>handleEditRow(i) } ></i>{" "}
                       <i class="fa-solid fa-trash deletebtn"></i>
                     </td>
                   </tr>
                 ))}
             </table>
+
             <nav>
               <ul className="pagination">
                 <li className="page-item">
@@ -176,10 +213,27 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
                     Next
                   </a>
                 </li>
-                <button className="AddTable">Add</button>
+                <button className="AddTable" onClick={() =>setCompAddUser(true) }>Add</button>
               </ul>
             </nav>
           </div>
+
+          <div>
+            {compAddUser&&<UserAdd closeAddUser={()=>{
+              setCompAddUser(false);
+            }}/>}
+          </div>
+
+          <div>
+            {compEditUser&&<UserUpdate closeEditUser={()=>{
+              setCompEditUser(false);
+              setRowToEdit(null)
+            }}
+            defaultValue={rowToEdit !== null && data[rowToEdit]}
+            />}
+          </div>
+
+
         </main>
       </div>
     </div>
@@ -202,6 +256,8 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
       setcurrentpage(id)
   }
 
+
+  
 
 };
 
