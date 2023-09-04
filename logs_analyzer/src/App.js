@@ -7,6 +7,7 @@ import FileHome from "./Files/page/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserTable from "./AdminDashboard/page/UserTable";
 import Logs from "./AdminDashboard/page/Logs";
+import Rules from "./AdminDashboard/page/Rules";
 
 //<AdminHome openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
 function App() {
@@ -22,6 +23,8 @@ function App() {
     <Route path="/" element={<AdminHome />} />
     <Route path="/user" element={<UserTable />} />
     <Route path="/logs" element={<Logs />} />
+    <Route path="/rules" element={<Rules />} />
+
     </Routes>
     </BrowserRouter>
   );

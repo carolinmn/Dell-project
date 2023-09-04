@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./form.css";
 
-const LogsAdd = ({closeAddLogs}) => {
+const RuleAdd = ({closeAddRule}) => {
 
 
   const [inputs, setInputs] = useState({});
 
+
   const validateForm=()=>{
-    if(inputs.user_name&& inputs.file_name &&inputs.file_date )
+    if(inputs.rule_name&&inputs.keywords)
     return true;
   return false
   }
@@ -18,38 +19,33 @@ const LogsAdd = ({closeAddLogs}) => {
     setInputs(values => ({...values, [name]: value}))
   }
 
-  
   const  handleSubmit = async(event) => {
     event.preventDefault();
 
     if(!validateForm()) return;
 
-    closeAddLogs()
+    closeAddRule()
     
     }
-
 
   return (
     <div className="mainForm-container" onClick={(e)=>{
       if(e.target.className==="mainForm-container")
-      closeAddLogs();
+      closeAddRule();
     }}>
       <div className="mainForm">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>User Name: </label>
-            <input type="text"  name="user_name"   value={inputs.user_name || ""} onChange={handleChange} />
+            <label>Rule Name: </label>
+            <input type="text"  name="rule_name"   value={inputs.rule_name || ""} onChange={handleChange} />
           </div>
-        
+
           <div className="form-group">
-            <label >File Name: </label>
-            <input type="text" name="file_name"  value={inputs.file_name || ""} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label >File Date: </label>
-            <input type="text"  name="file_date"  value={inputs.file_date || ""} onChange={handleChange}/>
+            <label >Key Words: </label>
+            <input type="text" name="keywords"  value={inputs.keywords || ""} onChange={handleChange} />
           </div>
           
+
           <button type="submit" className="btn" onClick={handleSubmit}>Add</button>
         </form>
       </div>
@@ -57,4 +53,4 @@ const LogsAdd = ({closeAddLogs}) => {
   );
 }
 
-export default LogsAdd;
+export default RuleAdd;

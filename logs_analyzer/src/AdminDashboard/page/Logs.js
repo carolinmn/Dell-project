@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Logs.css";
 import Header from "../comp/AdminHeader";
 import Sidebar from "../comp/AdminSidebar";
+import LogsAdd from "../comp/LogsAdd";
+import LogsUpdate from "../comp/LogsUpdate";
 
 const Logs = ( OpenSidebar, openSidebarToggle) => {
   const data = [
@@ -40,6 +42,20 @@ const Logs = ( OpenSidebar, openSidebarToggle) => {
     },
   ];
 
+  const [compAddLogs, setCompAddLogs] = useState(false);
+  const [compEditLogs, setCompEditLogs] = useState(false);
+
+  const [rowToEdit, setRowToEdit] = useState(null);
+
+
+  
+  const handleEditRow = (idx) => {
+    setRowToEdit(idx);
+
+    setCompEditLogs(true);
+  };
+
+
     //for the number of page
     const [currentpage, setcurrentpage] = useState(1);
     const recordsperPage =5;
@@ -75,14 +91,15 @@ const Logs = ( OpenSidebar, openSidebarToggle) => {
                 </tr>
               </thead>
               <tbody >
-                {records.map((log) => (
-                  <tr key={log._id} className="rowbody">
-                    <td>{log._id}</td>
-                    <td>{log.user_name}</td>
-                    <td>{log.file_name}</td>
-                    <td>{log.file_date}</td>
+                {records.map((d, i) => (
+                  <tr key={d._id} className="rowbody">
+                    <td>{d._id}</td>
+                    <td>{d.user_name}</td>
+                    <td>{d.file_name}</td>
+                    <td>{d.file_date}</td>
                     <td><button className="processBTN" >Show</button></td>
-                    <td><i class="fa-regular fa-pen-to-square editbtn"></i>  <i class="fa-solid fa-trash deletebtn"></i></td>
+                    <td><i class="fa-regular fa-pen-to-square editbtn" onClick={()=>handleEditRow(i)}></i>{" "}
+                      <i class="fa-solid fa-trash deletebtn"></i></td>
                   </tr>
                 ))}
               </tbody>
@@ -111,10 +128,27 @@ const Logs = ( OpenSidebar, openSidebarToggle) => {
                   </a>
                 </li>
 
-                <button className="AddTable">Add</button>
+                <button className="AddTable" onClick={() =>setCompAddLogs(true) }>Add</button>
               </ul>
             </nav>
           </div>
+          <div>
+            {compAddLogs&&<LogsAdd closeAddLogs={()=>{
+              setCompAddLogs(false);
+            }}/>}
+          </div>
+
+
+          
+          <div>
+            {compEditLogs&&<LogsUpdate closeEditLogs={()=>{
+              setCompEditLogs(false);
+              setRowToEdit(null)
+            }}
+            defaultValue={rowToEdit !== null && data[rowToEdit]}
+            />}
+          </div>
+
         </main>
       </div>
     </div>

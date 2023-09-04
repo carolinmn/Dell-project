@@ -27,7 +27,7 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
               <div className="card">
                 <i class="fas fa-users card-icon"></i>
                 <h1>Users</h1>
-                <h2>12</h2>
+                <h2>0</h2>
               </div>
             </Link>
 
@@ -35,7 +35,15 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
               <div className="card">
                 <i class="fa-regular fa-file card-icon"></i>
                 <h1>Logs</h1>
-                <h2>3</h2>
+                <h2>0</h2>
+              </div>
+            </Link>
+
+            <Link to="/rules" className="card-btn">
+              <div className="card">
+              <i class="fa-solid fa-scale-balanced card-icon"></i>
+                <h1>Rules</h1>
+                <h2>0</h2>
               </div>
             </Link>
           </div>

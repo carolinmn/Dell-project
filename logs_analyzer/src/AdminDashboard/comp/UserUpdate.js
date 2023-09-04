@@ -6,7 +6,7 @@ const UserUpdate = ({closeEditUser,defaultValue}) => {
   
 
   const validateForm=()=>{
-    if(inputs.userName&& inputs.password &&inputs.firstName && inputs.lastName &&inputs.email&& inputs.Phone)
+    if(inputs.userName&& inputs.firstName && inputs.lastName &&inputs.email&& inputs.Phone)
     return true;
   return false
   }
@@ -36,10 +36,6 @@ const UserUpdate = ({closeEditUser,defaultValue}) => {
           <div className="form-group">
             <label>User Name: </label>
             <input type="text"  name="userName"   value={inputs.userName || ""} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label >password: </label>
-            <input type="password"  name="password"  value={inputs.password || ""} onChange={handleChange} />
           </div>
           <div className="form-group">
             <label >First Name: </label>

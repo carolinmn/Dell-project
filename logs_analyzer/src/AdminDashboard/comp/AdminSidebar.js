@@ -33,6 +33,12 @@ function AdminSidebar({ openSidebarToggle, OpenSidebar }) {
             <i class="fa-regular fa-file"></i> Logs
           </li>
         </NavLink>
+        
+        <NavLink className="a-sidebar" to="/rules">
+          <li className="sidebar-list-item">
+          <i class="fa-solid fa-scale-balanced"></i> Rules
+          </li>
+        </NavLink>
 
 
         <a className="a-sidebar" href="/">
