@@ -18,6 +18,7 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
+      {/*     <Route path="/" element={<ReportsHome />} />*/} 
     <Route path="/" element={<AdminHome />} />
     <Route path="/user" element={<UserTable />} />
     <Route path="/logs" element={<Logs />} />

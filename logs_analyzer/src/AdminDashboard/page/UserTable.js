@@ -179,7 +179,7 @@ const UserTable = (OpenSidebar, openSidebarToggle) => {
                     <td>{d.userName}</td>
                     <td>{d.firstName}</td>
                     <td>{d.lastName}</td>
-                    <td>{d.Email}</td>
+                    <td>{d.email}</td>
                     <td>{d.Phone}</td>
                     <td>{d.role}</td>
                     <td>
