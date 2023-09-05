@@ -8,9 +8,10 @@ var LogSchema = mongoose.Schema({
     process :
     [{
         rules : String,
-        rank : String,
+        rank : String, 
         message : String,
         date : Date
+        
     }]
 
  });
