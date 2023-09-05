@@ -1,6 +1,6 @@
 #sidebar {  
   max-width: 15%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #263043;
   transition: all 0.5s;
   display: flex;
@@ -32,7 +32,7 @@
 }
 
 .signout{
-  position: fixed;
+  position: absolute;
   width: 177px;
   bottom: 0px;
   transition: 1500ms;

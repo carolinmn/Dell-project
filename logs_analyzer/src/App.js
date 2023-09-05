@@ -8,6 +8,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserTable from "./AdminDashboard/page/UserTable";
 import Logs from "./AdminDashboard/page/Logs";
 import Rules from "./AdminDashboard/page/Rules";
+import ProcessLogs from "./AdminDashboard/page/ProcessLogs";
+import { useParams } from "react-router-dom";
+
+
 
 //<AdminHome openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
 function App() {
@@ -24,6 +28,7 @@ function App() {
     <Route path="/user" element={<UserTable />} />
     <Route path="/logs" element={<Logs />} />
     <Route path="/rules" element={<Rules />} />
+    <Route path="/process-logs/:id" element={<ProcessLogs />} />
 
     </Routes>
     </BrowserRouter>
