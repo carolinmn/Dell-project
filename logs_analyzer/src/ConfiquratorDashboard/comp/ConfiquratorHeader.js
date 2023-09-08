@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import "../../styles/header.css";
 
-const AdminHeader = () => {
+const ConfiquratorHeader = () => {
   return (
     <header className="header">
       <div className="leftheader">
-        <h3>Admin Dashboard </h3>
+        <h3>Confiqurator Dashboard </h3>
       </div>
       <div className="rightheader">
         <i class="fa-regular fa-bell"></i>
@@ -14,6 +14,6 @@ const AdminHeader = () => {
       </div>
     </header>
   );
-};
+}
 
-export default AdminHeader;
+export default ConfiquratorHeader;

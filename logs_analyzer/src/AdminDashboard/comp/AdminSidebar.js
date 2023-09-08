@@ -1,51 +1,63 @@
-import "../../comp/Sidebar.css";
+import "../../styles/Sidebar.css";
 import {NavLink } from "react-router-dom";
 
 
-function AdminSidebar({ openSidebarToggle, OpenSidebar }) {
+function AdminSidebar() {
   return (
-    <aside
-      id="sidebar"
-      className={openSidebarToggle ? "sidebar-responsive" : ""}
-    >
+    <aside id="sidebar">
       <div className="sidebar-title">
         <div className="sidebar-brand">Log Analyzer</div>
-        <span className="icon close_icon" onClick={OpenSidebar}>
-          X
-        </span>
+
       </div>
 
       <ul className="sidebar-list">
-        <NavLink className="a-sidebar" to="/">
+
+        <NavLink className="a-sidebar dashboard" to="/admin">
           <li className="sidebar-list-item">
             <i class="fa-solid fa-table-columns"></i> Dashboard
           </li>
         </NavLink>
 
-        <NavLink className="a-sidebar" to="/user">
+        <NavLink className="a-sidebar " to="/admin/uploadfile">
+          <li className="sidebar-list-item">
+          <i class="fa-solid fa-upload"></i> Upload File
+          </li>
+        </NavLink>
+
+        <NavLink className="a-sidebar" to="/admin/users">
           <li className="sidebar-list-item">
             <i class="fas fa-users"></i> Users
           </li>
         </NavLink>
 
-        <NavLink className="a-sidebar" to="/logs">
+        <NavLink className="a-sidebar" to="/admin/logs">
           <li className="sidebar-list-item">
             <i class="fa-regular fa-file"></i> Logs
           </li>
         </NavLink>
         
-        <NavLink className="a-sidebar" to="/rules">
+        <NavLink className="a-sidebar" to="/admin/rules">
           <li className="sidebar-list-item">
           <i class="fa-solid fa-scale-balanced"></i> Rules
           </li>
         </NavLink>
 
+              
+        <NavLink className="a-sidebar" to="/admin/reports">
+          <li className="sidebar-list-item">
+          <i class="fa-solid fa-flag"></i> Reports
+          </li>
+        </NavLink>
+
+        
 
         <a className="a-sidebar" href="/">
           <li className="sidebar-list-item signout">
           <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
           </li>
         </a>
+
+        
 
       </ul>
     </aside>

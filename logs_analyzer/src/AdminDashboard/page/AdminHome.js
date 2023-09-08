@@ -1,20 +1,17 @@
 import React from "react";
-import "./AdminHome.css";
-import Header from "../comp/AdminHeader";
-import Sidebar from "../comp/AdminSidebar";
+import "../../styles/Home.css";
+import AdminHeader from "../comp/AdminHeader";
+import AdminSidebar from "../comp/AdminSidebar";
 import {Link } from "react-router-dom";
 
 
-const AdminHome = (OpenSidebar, openSidebarToggle) => {
+const AdminHome = () => {
   return (
     <div className="App">
-      <Sidebar
-        openSidebarToggle={openSidebarToggle}
-        OpenSidebar={OpenSidebar}
-      />
+      <AdminSidebar/>
 
       <div className="App2">
-        <Header OpenSidebar={OpenSidebar} />
+        <AdminHeader/>
 
         <main className="main-content">
           <div className="main-title">
@@ -23,27 +20,39 @@ const AdminHome = (OpenSidebar, openSidebarToggle) => {
           <hr />
 
           <div className="main-cards">
-            <Link to="/user" className="card-btn">
+
+          <Link to="/admin/uploadfile" className="card-btn">
+              <div className="card">
+              <i class="fa-solid fa-upload card-icon"></i>
+                <h1>Upload</h1>
+              </div>
+            </Link>
+
+            <Link to="/admin/users" className="card-btn">
               <div className="card">
                 <i class="fas fa-users card-icon"></i>
                 <h1>Users</h1>
-                <h2>0</h2>
               </div>
             </Link>
 
-            <Link to="/logs" className="card-btn">
+            <Link to="/admin/logs" className="card-btn">
               <div className="card">
                 <i class="fa-regular fa-file card-icon"></i>
                 <h1>Logs</h1>
-                <h2>0</h2>
               </div>
             </Link>
 
-            <Link to="/rules" className="card-btn">
+            <Link to="/admin/rules" className="card-btn">
               <div className="card">
               <i class="fa-solid fa-scale-balanced card-icon"></i>
                 <h1>Rules</h1>
-                <h2>0</h2>
+              </div>
+            </Link>
+
+            <Link to="/admin/reports" className="card-btn">
+              <div className="card">
+              <i class="fa-solid fa-flag card-icon"></i>
+                <h1>Reports</h1>
               </div>
             </Link>
           </div>

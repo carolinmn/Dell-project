@@ -1,34 +1,44 @@
 import "./App.css";
 import AdminHome from "./AdminDashboard/page/AdminHome";
 import { useState } from "react";
-import ReportsHome from "./Reports/page/Home";
-import RoleManagmentsHome from "./RoleManagment/page/Home";
-import FileHome from "./Files/page/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserTable from "./AdminDashboard/page/UserTable";
-import Logs from "./AdminDashboard/page/Logs";
-import Rules from "./AdminDashboard/page/Rules";
-import ProcessLogs from "./AdminDashboard/page/ProcessLogs";
-import { useParams } from "react-router-dom";
+import UserTable from "./SidebarActions/Users/page/UserTable";
+import Logs from "./SidebarActions/Logs/page/Logs";
+import Rules from "./SidebarActions/Rules/page/Rules";
+import ProcessLogs from "./SidebarActions/Logs/page/ProcessLogs";
+import ConfiquratorHome from "./ConfiquratorDashboard/page/ConfiquratorHome";
+import ViewerHome from "./ViewerDashboard/page/ViewerHome";
+import UploadHome from "./SidebarActions/UploadFile/page/UploadHome";
+import ReportsHome from "./SidebarActions/Reports/page/ReportsHome";
 
 
 
 //<AdminHome openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
 function App() {
-  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
-
-  const OpenSidebar = () => {
-    setOpenSidebarToggle(!openSidebarToggle);
-  };
   return (
     <BrowserRouter>
     <Routes>
       {/*     <Route path="/" element={<ReportsHome />} />*/} 
-    <Route path="/" element={<AdminHome />} />
-    <Route path="/user" element={<UserTable />} />
-    <Route path="/logs" element={<Logs />} />
-    <Route path="/rules" element={<Rules />} />
-    <Route path="/process-logs/:id" element={<ProcessLogs />} />
+    <Route path="/admin" element={<AdminHome />} />
+    <Route path="/admin/uploadfile" element={<UploadHome role="admin" />} />
+    <Route path="/admin/users" element={<UserTable />} />
+    <Route path="/admin/logs" element={<Logs role="admin" />} />
+    <Route path="/admin/process-logs/:id" element={<ProcessLogs role="admin"/>} />
+    <Route path="/admin/rules" element={<Rules role="admin" />} />
+    <Route path="/admin/reports" element={<ReportsHome role="admin" />} />
+
+
+    <Route path="/confiqurator" element={<ConfiquratorHome />} />
+    <Route path="/confiqurator/uploadfile" element={<UploadHome role="confiqurator" />} />
+    <Route path="/confiqurator/logs" element={<Logs role="confiqurator" />} />
+    <Route path="/confiqurator/rules" element={<Rules role="confiqurator" />} />
+    <Route path="/confiqurator/process-logs/:id" element={<ProcessLogs role="confiqurator"/>} />
+    <Route path="/confiqurator/reports" element={<ReportsHome role="confiqurator" />} />
+
+    <Route path="/viewer" element={<ViewerHome />} />
+    <Route path="/viewer/reports" element={<ReportsHome role="viewer" />} />
+
+
 
     </Routes>
     </BrowserRouter>
