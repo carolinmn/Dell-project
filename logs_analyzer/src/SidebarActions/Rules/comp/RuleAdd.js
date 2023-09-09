@@ -23,6 +23,14 @@ const RuleAdd = ({closeAddRule}) => {
     event.preventDefault();
 
     if(!validateForm()) return;
+    
+    const response =  await fetch('http://localhost:5000/rules/add', {
+      method: 'POST',
+      body: JSON.stringify(inputs),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
 
     closeAddRule()
     

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../../styles/form.css";
 
-const ProcessAdd = ({closeAddProcess}) => {
+const ProcessAdd = ({closeAddProcess,id={id}}) => {
 
 
   const [inputs, setInputs] = useState({});
@@ -23,6 +23,15 @@ const ProcessAdd = ({closeAddProcess}) => {
     event.preventDefault();
 
     if(!validateForm()) return;
+
+    const response =  await fetch('http://localhost:5000/logs/process/add'+id, {
+      method: 'POST',
+      body: JSON.stringify(inputs),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
 
     closeAddProcess()
     

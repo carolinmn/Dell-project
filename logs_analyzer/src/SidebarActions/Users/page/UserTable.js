@@ -6,6 +6,8 @@ import UserAdd from "../comp/UserAdd";
 import UserUpdate from "../comp/UserUpdate";
 
 const UserTable = () => {
+
+  // fake data
   const [data,setData] =useState( [
     {
       _id: "1",
@@ -119,6 +121,20 @@ const UserTable = () => {
   ]);
 
 
+  // get data from the backend
+  // const [data, setData] = useState([{}]);
+  // useEffect(() => {
+  //   const response = fetch("http://localhost:5000/admin/users", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   setData(response.json());
+  // }, []);
+
+
+
   //for open adduser comp
   const [compAddUser, setCompAddUser] = useState(false);
   const [compEditUser, setCompEditUser] = useState(false);
@@ -126,6 +142,15 @@ const UserTable = () => {
   
   const [rowToEdit, setRowToEdit] = useState(null);
 
+  const handledelete = (idx)=>{
+    const response =  fetch("http://localhost:5000/admin/users/delete", {
+      method: "DELETE",
+      body: JSON.stringify(idx),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 
 
   const handleEditRow = (idx) => {
@@ -181,7 +206,7 @@ const UserTable = () => {
                     <td>{d.role}</td>
                     <td>
                       <i class="fa-regular fa-pen-to-square editbtn"  onClick={() =>handleEditRow(i) } ></i>{" "}
-                      <i class="fa-solid fa-trash deletebtn"></i>
+                      <i class="fa-solid fa-trash deletebtn" onClick={()=>handledelete(i)} ></i>
                     </td>
                   </tr>
                 ))}

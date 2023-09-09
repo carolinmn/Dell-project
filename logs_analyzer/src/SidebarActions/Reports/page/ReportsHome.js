@@ -12,11 +12,12 @@ const ReportsHome = (props) => {
     <div className="App">
       {props.role === "admin" ? (
         <AdminSidebar />
-      ) : props.role === "configurator" ? (
+      ) : props.role === "confiqurator" ? (
         <ConfiquratorSidebar />
       ) : (
         <ViewerSidebar />
       )}{" "}
+      
       <div className="App2">
         {props.role === "admin" ? (
           <AdminHeader />

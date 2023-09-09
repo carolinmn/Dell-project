@@ -13,6 +13,8 @@ const ProcessLogs = (props) => {
   const { id } = useParams();
   const logData = data.find((log) => log._id === parseInt(id));
 
+
+
   // for open adduser comp
   const [compAddProcess, setCompAddProcess] = useState(false);
   const [compEditProcess, setCompEditProcess] = useState(false);
@@ -21,6 +23,16 @@ const ProcessLogs = (props) => {
   const handleEditRow = (idx) => {
     setRowToEdit(idx);
     setCompEditProcess(true);
+  };
+
+  const handledelete = (idx) => {
+    const response = fetch("http://localhost:5000/process/logs/delete/"+id, {
+      method: "DELETE",
+      body: JSON.stringify(idx),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   // for the number of page
@@ -68,7 +80,7 @@ const ProcessLogs = (props) => {
                           className="fa-regular fa-pen-to-square editbtn"
                           onClick={() => handleEditRow(i)}
                         ></i>{" "}
-                        <i className="fa-solid fa-trash deletebtn"></i>
+                        <i className="fa-solid fa-trash deletebtn" onClick={() => handledelete(i)}></i>
                       </td>
                     </tr>
                   ))}
@@ -112,7 +124,7 @@ const ProcessLogs = (props) => {
           </div>
 
           <div>
-            {compAddProcess && <ProcessAdd closeAddProcess={() => setCompAddProcess(false)} />}
+            {compAddProcess && <ProcessAdd closeAddProcess={() => setCompAddProcess(false)} id={id}/>}
           </div>
 
           <div>
@@ -123,6 +135,7 @@ const ProcessLogs = (props) => {
                   setRowToEdit(null);
                 }}
                 defaultValue={rowToEdit !== null && records[rowToEdit]}
+                id={id}
               />
             )}
           </div>

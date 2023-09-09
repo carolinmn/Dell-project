@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../../styles/Table.css";
 import { Link, useHistory } from "react-router-dom";
 import AdminHeader from "../../../AdminDashboard/comp/AdminHeader";
@@ -10,12 +10,43 @@ import ConfiquratorSidebar from "../../../ConfiquratorDashboard/comp/Confiqurato
 import ConfiquratorHeader from "../../../ConfiquratorDashboard/comp/ConfiquratorHeader";
 
 const Logs = (props) => {
-  
+  //  get data from the backend
+
+//  const [data, setData] = useState([{}]);
+//   useEffect(() => {
+//     if (props.role === "admin") {
+//       const response = fetch("http://localhost:5000/admin/logs", {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       setData(response.json());
+//     }else {
+//       const response = fetch("http://localhost:5000/confiqurator/logs", {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       setData(response.json());
+//     }
+//   }, []);
 
   const [compAddLogs, setCompAddLogs] = useState(false);
   const [compEditLogs, setCompEditLogs] = useState(false);
 
   const [rowToEdit, setRowToEdit] = useState(null);
+
+  const handledelete = (idx) => {
+    const response = fetch("http://localhost:5000/logs/delete", {
+      method: "DELETE",
+      body: JSON.stringify(idx),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };
 
   const handleEditRow = (idx) => {
     setRowToEdit(idx);
@@ -34,9 +65,9 @@ const Logs = (props) => {
 
   return (
     <div className="App">
-      {props.role==="admin"? <AdminSidebar/> : <ConfiquratorSidebar/>}
+      {props.role === "admin" ? <AdminSidebar /> : <ConfiquratorSidebar />}
       <div className="App2">
-      {props.role==="admin"? <AdminHeader /> : <ConfiquratorHeader/>}
+        {props.role === "admin" ? <AdminHeader /> : <ConfiquratorHeader />}
         <main className="main-content">
           <div className="main-title">
             <h3>Logs Table</h3>
@@ -71,7 +102,10 @@ const Logs = (props) => {
                         class="fa-regular fa-pen-to-square editbtn"
                         onClick={() => handleEditRow(i)}
                       ></i>{" "}
-                      <i class="fa-solid fa-trash deletebtn"></i>
+                      <i
+                        class="fa-solid fa-trash deletebtn"
+                        onClick={() => handledelete(i)}
+                      ></i>
                     </td>
                   </tr>
                 ))}

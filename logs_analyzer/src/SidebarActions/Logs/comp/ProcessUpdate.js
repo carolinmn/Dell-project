@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../../styles/form.css";
 
-const ProcessUpdate = ({closeEditProcess,defaultValue}) => {
+const ProcessUpdate = ({closeEditProcess,defaultValue,id}) => {
 
   const [inputs, setInputs] = useState(defaultValue||{});
 
@@ -22,6 +22,14 @@ const ProcessUpdate = ({closeEditProcess,defaultValue}) => {
 
     if(!validateForm()) return;
 
+    const response = await fetch("http://localhost:5000/logs/process/update"+id, {
+      method: "PUT",
+      body: JSON.stringify(inputs),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
     closeEditProcess()
     
     }
@@ -36,7 +44,7 @@ const ProcessUpdate = ({closeEditProcess,defaultValue}) => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Rule: </label>
-            <input type="text"  name="rules"   value={inputs.rules || ""} onChange={handleChange} />
+            <input type="text"  name="rules"   value={inputs.rules || ""} onChange={handleChange} disabled />
           </div>
           <div className="form-group">
             <label >Rank: </label>

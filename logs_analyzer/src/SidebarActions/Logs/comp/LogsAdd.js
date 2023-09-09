@@ -24,6 +24,15 @@ const LogsAdd = ({closeAddLogs}) => {
 
     if(!validateForm()) return;
 
+    const response =  await fetch('http://localhost:5000/logs/add', {
+      method: 'POST',
+      body: JSON.stringify(inputs),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+
     closeAddLogs()
     
     }

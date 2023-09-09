@@ -19,11 +19,17 @@ const UserUpdate = ({closeEditUser,defaultValue}) => {
 
   const  handleSubmit = async(event) => {
     event.preventDefault();
-
     if(!validateForm()) return;
 
-    closeEditUser()
+    const response = await fetch("http://localhost:5000/admin/users/update", {
+      method: "PUT",
+      body: JSON.stringify(inputs),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     
+    closeEditUser()
     }
 
   return (
@@ -33,6 +39,10 @@ const UserUpdate = ({closeEditUser,defaultValue}) => {
     }}>
       <div className="mainForm">
         <form onSubmit={handleSubmit}>
+        <div className="form-group">
+            <label>ID: </label>
+            <input type="text"  name="_id"   value={inputs._id || ""} onChange={handleChange} disabled />
+          </div>
           <div className="form-group">
             <label>User Name: </label>
             <input type="text"  name="userName"   value={inputs.userName || ""} onChange={handleChange} />

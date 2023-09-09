@@ -21,11 +21,44 @@ const Rules = (props) => {
     },
   ]);
 
+  //  const [data, setData] = useState([{}]);
+//   useEffect(() => {
+//     if (props.role === "admin") {
+//       const response = fetch("http://localhost:5000/admin/rules", {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       setData(response.json());
+//     }else {
+//       const response = fetch("http://localhost:5000/confiqurator/rules", {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       setData(response.json());
+//     }
+//   }, []);
+
+  
+
   //for open adduser comp
   const [compAddRules, setCompAddRules] = useState(false);
   const [compEditRules, setCompEditRules] = useState(false);
 
   const [rowToEdit, setRowToEdit] = useState(null);
+
+  const handledelete = (idx) => {
+    const response = fetch("http://localhost:5000/Rules/delete", {
+      method: "DELETE",
+      body: JSON.stringify(idx),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };
 
   const handleEditRow = (idx) => {
     setRowToEdit(idx);
@@ -81,7 +114,7 @@ const Rules = (props) => {
                         class="fa-regular fa-pen-to-square editbtn"
                         onClick={() => handleEditRow(i)}
                       ></i>{" "}
-                      <i class="fa-solid fa-trash deletebtn"></i>
+                      <i class="fa-solid fa-trash deletebtn  "   onClick={() => handledelete(i)}></i>
                     </td>
                   </tr>
                 ))}

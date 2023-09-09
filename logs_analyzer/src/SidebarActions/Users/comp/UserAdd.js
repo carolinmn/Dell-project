@@ -22,6 +22,14 @@ const UserAdd = ({closeAddUser}) => {
 
     if(!validateForm()) return;
 
+    const response =  await fetch('http://localhost:5000/admin/users/add', {
+        method: 'POST',
+        body: JSON.stringify(inputs),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
     closeAddUser()
     
     }
@@ -33,6 +41,7 @@ const UserAdd = ({closeAddUser}) => {
     }}>
       <div className="mainForm">
         <form onSubmit={handleSubmit}>
+      
           <div className="form-group">
             <label>User Name: </label>
             <input type="text"  name="userName"   value={inputs.userName || ""} onChange={handleChange} />
