@@ -39,13 +39,9 @@ const UserUpdate = ({closeEditUser,defaultValue}) => {
     }}>
       <div className="mainForm">
         <form onSubmit={handleSubmit}>
-        <div className="form-group">
-            <label>ID: </label>
-            <input type="text"  name="_id"   value={inputs._id || ""} onChange={handleChange} disabled />
-          </div>
           <div className="form-group">
             <label>User Name: </label>
-            <input type="text"  name="userName"   value={inputs.userName || ""} onChange={handleChange} />
+            <input type="text"  name="userName"   value={inputs.userName || ""} onChange={handleChange} disabled/>
           </div>
           <div className="form-group">
             <label >First Name: </label>

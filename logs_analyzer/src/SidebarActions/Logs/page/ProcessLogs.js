@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import AdminSidebar from "../../../AdminDashboard/comp/AdminSidebar";
 import AdminHeader from "../../../AdminDashboard/comp/AdminHeader";
 import "../../../styles/Table.css";
-import ProcessUpdate from "../comp/ProcessUpdate";
-import ProcessAdd from "../comp/ProcessAdd";
 import data from "../comp/logsdata";
 import ConfiquratorSidebar from "../../../ConfiquratorDashboard/comp/ConfiquratorSidebar";
 import ConfiquratorHeader from "../../../ConfiquratorDashboard/comp/ConfiquratorHeader";
@@ -15,25 +13,10 @@ const ProcessLogs = (props) => {
 
 
 
-  // for open adduser comp
-  const [compAddProcess, setCompAddProcess] = useState(false);
-  const [compEditProcess, setCompEditProcess] = useState(false);
-  const [rowToEdit, setRowToEdit] = useState(null);
 
-  const handleEditRow = (idx) => {
-    setRowToEdit(idx);
-    setCompEditProcess(true);
-  };
 
-  const handledelete = (idx) => {
-    const response = fetch("http://localhost:5000/process/logs/delete/"+id, {
-      method: "DELETE",
-      body: JSON.stringify(idx),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  };
+
+  
 
   // for the number of page
   const [currentpage, setcurrentpage] = useState(1);
@@ -64,7 +47,7 @@ const ProcessLogs = (props) => {
                   <th>Rank</th>
                   <th>Message</th>
                   <th>Date</th>
-                  <th>Actions</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -75,13 +58,7 @@ const ProcessLogs = (props) => {
                       <td>{d.rank}</td>
                       <td>{d.message}</td>
                       <td>{d.date}</td>
-                      <td>
-                        <i
-                          className="fa-regular fa-pen-to-square editbtn"
-                          onClick={() => handleEditRow(i)}
-                        ></i>{" "}
-                        <i className="fa-solid fa-trash deletebtn" onClick={() => handledelete(i)}></i>
-                      </td>
+                      
                     </tr>
                   ))}
               </tbody>
@@ -113,32 +90,13 @@ const ProcessLogs = (props) => {
                     Next
                   </a>
                 </li>
-                <button
-                  className="AddTable"
-                  onClick={() => setCompAddProcess(true)}
-                >
-                  Add
-                </button>
+          
               </ul>
             </nav>
           </div>
 
-          <div>
-            {compAddProcess && <ProcessAdd closeAddProcess={() => setCompAddProcess(false)} id={id}/>}
-          </div>
 
-          <div>
-            {compEditProcess && (
-              <ProcessUpdate
-                closeEditProcess={() => {
-                  setCompEditProcess(false);
-                  setRowToEdit(null);
-                }}
-                defaultValue={rowToEdit !== null && records[rowToEdit]}
-                id={id}
-              />
-            )}
-          </div>
+        
         </main>
       </div>
     </div>

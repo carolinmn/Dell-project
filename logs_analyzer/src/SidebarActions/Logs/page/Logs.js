@@ -3,8 +3,6 @@ import "../../../styles/Table.css";
 import { Link, useHistory } from "react-router-dom";
 import AdminHeader from "../../../AdminDashboard/comp/AdminHeader";
 import AdminSidebar from "../../../AdminDashboard/comp/AdminSidebar";
-import LogsAdd from "../comp/LogsAdd";
-import LogsUpdate from "../comp/LogsUpdate";
 import data from "../comp/logsdata";
 import ConfiquratorSidebar from "../../../ConfiquratorDashboard/comp/ConfiquratorSidebar";
 import ConfiquratorHeader from "../../../ConfiquratorDashboard/comp/ConfiquratorHeader";
@@ -33,10 +31,6 @@ const Logs = (props) => {
 //     }
 //   }, []);
 
-  const [compAddLogs, setCompAddLogs] = useState(false);
-  const [compEditLogs, setCompEditLogs] = useState(false);
-
-  const [rowToEdit, setRowToEdit] = useState(null);
 
   const handledelete = (idx) => {
     const response = fetch("http://localhost:5000/logs/delete", {
@@ -48,11 +42,7 @@ const Logs = (props) => {
     });
   };
 
-  const handleEditRow = (idx) => {
-    setRowToEdit(idx);
 
-    setCompEditLogs(true);
-  };
 
   //for the number of page
   const [currentpage, setcurrentpage] = useState(1);
@@ -99,10 +89,6 @@ const Logs = (props) => {
                     </td>
                     <td>
                       <i
-                        class="fa-regular fa-pen-to-square editbtn"
-                        onClick={() => handleEditRow(i)}
-                      ></i>{" "}
-                      <i
                         class="fa-solid fa-trash deletebtn"
                         onClick={() => handledelete(i)}
                       ></i>
@@ -138,37 +124,12 @@ const Logs = (props) => {
                     Next
                   </a>
                 </li>
-
-                <button
-                  className="AddTable"
-                  onClick={() => setCompAddLogs(true)}
-                >
-                  Add
-                </button>
               </ul>
             </nav>
           </div>
-          <div>
-            {compAddLogs && (
-              <LogsAdd
-                closeAddLogs={() => {
-                  setCompAddLogs(false);
-                }}
-              />
-            )}
-          </div>
+        
 
-          <div>
-            {compEditLogs && (
-              <LogsUpdate
-                closeEditLogs={() => {
-                  setCompEditLogs(false);
-                  setRowToEdit(null);
-                }}
-                defaultValue={rowToEdit !== null && data[rowToEdit]}
-              />
-            )}
-          </div>
+      
         </main>
       </div>
     </div>

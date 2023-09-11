@@ -12,7 +12,7 @@ const Rules = (props) => {
     {
       _id: "1",
       rule_name: "xyz",
-      keywords: ["a", "baa"],
+      keywords: ["a", "baa","aaaa"],
     },
     {
       _id: "2",
