@@ -5,7 +5,6 @@ import AdminHeader from "../../../AdminDashboard/comp/AdminHeader";
 import AdminSidebar from "../../../AdminDashboard/comp/AdminSidebar";
 import data from "../comp/logsdata";
 import ConfiquratorSidebar from "../../../ConfiquratorDashboard/comp/ConfiquratorSidebar";
-import ConfiquratorHeader from "../../../ConfiquratorDashboard/comp/ConfiquratorHeader";
 
 const Logs = (props) => {
   //  get data from the backend
@@ -57,7 +56,7 @@ const Logs = (props) => {
     <div className="App">
       {props.role === "admin" ? <AdminSidebar /> : <ConfiquratorSidebar />}
       <div className="App2">
-        {props.role === "admin" ? <AdminHeader /> : <ConfiquratorHeader />}
+        {props.role === "admin" ? <AdminHeader role="Admin" /> : <AdminHeader role="Confiqurator" />}
         <main className="main-content">
           <div className="main-title">
             <h3>Logs Table</h3>

@@ -11,7 +11,7 @@ const AdminHome = () => {
       <AdminSidebar/>
 
       <div className="App2">
-        <AdminHeader/>
+        <AdminHeader role="Admin"/>
 
         <main className="main-content">
           <div className="main-title">
@@ -56,6 +56,7 @@ const AdminHome = () => {
               </div>
             </Link>
           </div>
+          
         </main>
       </div>
     </div>

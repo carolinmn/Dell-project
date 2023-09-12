@@ -1,8 +1,8 @@
 import React from 'react';
 import "../../styles/Home.css";
-import ConfiquratorHeader from "../comp/ConfiquratorHeader";
 import ConfiquratorSidebar from "../comp/ConfiquratorSidebar";
 import {Link } from "react-router-dom";
+import AdminHeader from '../../AdminDashboard/comp/AdminHeader';
 
 
 const ConfiquratorHome = () => {
@@ -11,7 +11,7 @@ const ConfiquratorHome = () => {
     <ConfiquratorSidebar/>
 
     <div className="App2">
-      <ConfiquratorHeader/>
+      <AdminHeader role="Confiqurator"/>
 
       <main className="main-content">
         <div className="main-title">

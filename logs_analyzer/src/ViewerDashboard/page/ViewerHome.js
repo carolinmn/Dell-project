@@ -1,8 +1,8 @@
 import React from 'react';
 import "../../styles/Home.css";
-import ViewerHeader from "../comp/ViewerHeader";
 import ViewerSidebar from "../comp/ViewerSidebar";
 import {Link } from "react-router-dom";
+import AdminHeader from '../../AdminDashboard/comp/AdminHeader';
 
 const ViewerHome = () => {
   return (
@@ -10,7 +10,7 @@ const ViewerHome = () => {
       <ViewerSidebar/>
 
       <div className="App2">
-        <ViewerHeader/>
+      <AdminHeader role="Viewer" />
 
         <main className="main-content">
           <div className="main-title">

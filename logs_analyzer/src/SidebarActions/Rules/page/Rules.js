@@ -5,7 +5,6 @@ import AdminHeader from "../../../AdminDashboard/comp/AdminHeader";
 import RuleAdd from "../comp/RuleAdd";
 import RuleUpdate from "../comp/RuleUpdate";
 import ConfiquratorSidebar from "../../../ConfiquratorDashboard/comp/ConfiquratorSidebar";
-import ConfiquratorHeader from "../../../ConfiquratorDashboard/comp/ConfiquratorHeader";
 
 const Rules = (props) => {
   const [data, setData] = useState([
@@ -80,7 +79,7 @@ const Rules = (props) => {
       {props.role==="admin"? <AdminSidebar/> : <ConfiquratorSidebar/>}
 
       <div className="App2">
-      {props.role==="admin"? <AdminHeader /> : <ConfiquratorHeader/>}
+      {props.role==="admin"? <AdminHeader role="Admin" /> : <AdminHeader role="Confiqurator" />}
 
         <main className="main-content">
           <div className="main-title">

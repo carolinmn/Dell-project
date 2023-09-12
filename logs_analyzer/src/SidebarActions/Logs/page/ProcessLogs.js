@@ -5,7 +5,6 @@ import AdminHeader from "../../../AdminDashboard/comp/AdminHeader";
 import "../../../styles/Table.css";
 import data from "../comp/logsdata";
 import ConfiquratorSidebar from "../../../ConfiquratorDashboard/comp/ConfiquratorSidebar";
-import ConfiquratorHeader from "../../../ConfiquratorDashboard/comp/ConfiquratorHeader";
 
 const ProcessLogs = (props) => {
   const { id } = useParams();
@@ -32,7 +31,7 @@ const ProcessLogs = (props) => {
     <div className="App">
       {props.role==="admin"? <AdminSidebar/> : <ConfiquratorSidebar/>}
       <div className="App2">
-      {props.role==="admin"? <AdminHeader /> : <ConfiquratorHeader/>}
+      {props.role==="admin"? <AdminHeader role="Admin" /> : <AdminHeader role="Confiqurator" />}
         <main className="main-content">
           <div className="main-title">
             <h3>Process for {logData.user_name}</h3>

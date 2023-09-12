@@ -3,9 +3,7 @@ import "../../../styles/Table.css";
 import AdminSidebar from "../../../AdminDashboard/comp/AdminSidebar";
 import ConfiquratorSidebar from "../../../ConfiquratorDashboard/comp/ConfiquratorSidebar";
 import AdminHeader from "../../../AdminDashboard/comp/AdminHeader";
-import ConfiquratorHeader from "../../../ConfiquratorDashboard/comp/ConfiquratorHeader";
 import ViewerSidebar from "../../../ViewerDashboard/comp/ViewerSidebar";
-import ViewerHeader from "../../../ViewerDashboard/comp/ViewerHeader";
 
 const ReportsHome = (props) => {
   return (
@@ -20,11 +18,11 @@ const ReportsHome = (props) => {
       
       <div className="App2">
         {props.role === "admin" ? (
-          <AdminHeader />
+          <AdminHeader role="Admin" />
         ) : props.role === "confiqurator" ? (
-          <ConfiquratorHeader />
+          <AdminHeader role="Confiqurator" />
         ) : (
-          <ViewerHeader />
+          <AdminHeader role="Viewer" />
         )}
         <main className="main-content">
           <div className="main-title">
